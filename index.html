@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Todo List with pure javascript + html5 + localstorage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> 
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+</head>
+<body>
+<h1 style="text-align:center;"><img src="img/logo.png" width="320" alt=""></h1>
+<h2 style="text-align:center;">Todo List with pure javascript + html5 + localstorage</h2>
+
+<div id="todo-wrap">
+    
+    <div id="new-task" >
+         <div class="field" id="task-name-wrap-field">
+            <div id="taskname" class="submit_post_field" data-ph="Что хотите сделать ?" contenteditable="true"></div>
+
+            <div id="marker-picker">
+              <span id="choosed-color"  data-color="#F0F1F5"></span>
+              <ul id="marker-picker-list">
+                <li class="color-item" data-color="#F0F1F5"></li>
+                <li class="color-item" data-color="#66CC99"></li>
+                <li class="color-item" data-color="#44BBFF"></li>
+                <li class="color-item" data-color="#FFF457"></li>
+                <li class="color-item" data-color="#FC575E"></li>
+              </ul>
+            </div>
+            <div class="error" id="error-taskname"></div>
+         </div>
+
+         <div id="more-fields" class="animated">
+           <div class="field">
+              <label for="taskdesc">Описание: </label>
+              <div id="taskdesc" class="submit_post_field" data-ph="Введите ваш тект сюда ..." contenteditable="true"></div>
+              <div class="error"></div>
+           </div>
+
+           <div class="field">
+              <label for="tasktime">Дата и время окончания: </label>
+              <input type="datetime-local"  id="tasktime">
+              <div class="error"></div>
+           </div>
+
+           <div class="field">
+                <span id="clear-tasks" class="span-links"></span>
+           </div>
+
+         </div>
+
+        <div class="field" id="submit-task">
+          <span id="more"></span>
+          <span id="add" data-info="Ctr+Enter - отправить сообщение">добавить</span>
+        </div>
+    </div>
+   
+    <div id="todolist"></div>
+    <footer>
+      <h5>Created by Ihor Lysenko</h5>
+    </footer>
+ </div>
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
+ 

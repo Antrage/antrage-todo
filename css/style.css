@@ -1,0 +1,510 @@
+@import 'https://fonts.googleapis.com/css?family=Rubik:300,400,700&subset=cyrillic';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #edeef0;
+    font-family: 'Rubik', sans-serif;
+/* font-family: 'Cormorant SC', serif; */
+    color: #647387;
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    font-size: 13px;
+    line-height: 1.154;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+
+#todo-wrap {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.03);
+        padding: 15px;
+}
+
+#more {
+    text-align: left;
+    float: left;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 34px;
+}
+
+#new-task {
+    padding: 15px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 1px 1px 0px rgba(180, 185, 195, 1);
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    padding: 15px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    margin: 15px 0 0;
+    transition: height 2s ease-in;
+}
+
+#new-task > .field:not(:first-child) {
+    margin-top: 15px;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+#new-task > div > .field {
+    margin-top: 15px;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+#more-fields {
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+}
+
+#more-fields.fadeOut {
+    height: 0px;
+    transition: height 1500ms;
+}
+
+#more-fields.fadeIn {
+    height: auto;
+    transition: height 1500ms;
+}
+
+#new-task .field label{
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    padding: 0px 0px 5px 0px;
+}
+
+#taskdesc{
+      padding-left: 0;
+    padding-right: 25px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    line-height: 16px;
+    padding-top: 6px;
+    margin-bottom: 0;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    border-bottom: solid 1px #e4e6e9;
+    -o-transition: border-bottom-color 0.3s linear;
+    transition: border-bottom-color 0.3s linear;
+    padding: 10px 5px;
+    text-align: left;
+    color: #000;
+    font-size: 13px;
+}
+
+#taskdesc:focus{
+    border-bottom: solid 1px #a9bbcf;
+      padding: 20px 15px;
+}
+
+
+
+#new-task .field input,
+#new-task .field textarea  {
+    width: 100%;
+    display: block;
+    text-align: left;
+    height: 35px;
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 16px;
+    border:  1px solid #e4e6e9;
+    outline:  none;
+}
+
+#new-task .field input:focus,
+#new-task .field textarea:focus  {
+     border:  1px solid #a9bbcf;
+}
+
+#new-task .field .error {
+    width: 100%;
+    display: block;
+    text-align: right;
+    color: #005057;
+    font-size: 12px;
+    padding: 0px 15px;
+}
+
+#new-task #add {
+    padding: 7px 16px 8px;
+    margin: 0;
+    font-size: 12.5px;
+    display: inline-block;
+    zoom: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    outline: none;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,sans-serif;
+    vertical-align: top;
+    line-height: 15px;
+    text-align: center;
+    text-decoration: none;
+    background: none;
+    background-color: #5e81a8;
+    color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-size: 13px;
+    outline: none;
+    box-shadow: none;
+    float: right;
+}
+
+.span-links {
+    text-align: center;
+
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 34px;
+}
+
+ [contentEditable=true]:empty:not(:focus):before{
+        content:attr(data-ph);
+        font-size: 12px;
+        color: #ccc;
+        padding: 0px 5px;
+    } 
+
+
+#new-task #add:hover{
+    background-color: #6888ad;
+    text-decoration: none;
+}
+
+div.submit_post_field, .submit_post_box.shown div.submit_post_field {
+    padding-right: 36px;
+    min-height: 30px;
+}
+
+div.submit_post_field {
+    overflow: hidden;
+    width: 100%;
+    padding: 14px 20px 16px 12px;
+    border-radius: 2px;
+    word-wrap: break-word;   
+    text-align: left;
+    outline: none;
+}
+
+input[type="checkbox"] {
+    margin:5px;
+}
+
+
+#taskname[contentEditable=true]:empty:not(:focus):before{
+        content:attr(data-ph);
+        font-size: 13px;
+        color: #ccc;
+        padding: 0px;
+}
+
+
+
+
+[data-info]:hover:before{
+        content:attr(data-info);
+        display: block;
+        position: absolute;
+        opacity: 0.9;
+        bottom: 100%;
+        right: 5px;
+        font-size: 13px;
+        color: #fff;
+        border-radius: 4px;
+        padding: 3px 10px;
+        background: rgba(0,0,0,0.9);
+        animation-name: lateShow;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+}
+
+[data-info]:hover:after{
+        content:'';
+        display: block;
+    bottom: 100%;
+    margin-bottom: -6px;
+    right: 5%;
+    position: absolute;
+    opacity: 0.9;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    animation-name: lateShow;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    border-color: rgba(0,0,0,0.9) transparent transparent transparent;
+}
+
+@keyframes lateShow{
+    0%   {opacity: 0;}
+    25%  {opacity: 0;}
+    50%  {opacity: 0;}
+    75%  {opacity: 0;}
+    100% {opacity: 0.9;}
+}
+
+
+#taskname{
+       border-bottom: solid 1px #e4e6e9;
+       margin-bottom: 5px;
+
+    }
+#taskname:focus{
+       border-bottom: solid 1px #a9bbcf;
+    padding: 14px 20px 16px 12px;
+
+    }
+
+ul {
+    position: relative;
+    list-style-type: none;
+    padding: 0px;
+}
+
+ul#todolist-item li {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background: #ffffff;
+    padding: 15px;
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    margin: 15px 0 0;
+    overflow: hidden;
+  }
+
+ul#todolist-item .animated.checked {
+    background: rgba(255,255,255, 0.5);
+}
+
+.checked span:not(.remove){
+    text-decoration: line-through;
+}
+
+
+li > span {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+li > span.task-endtime {
+    float: right;
+    width: 100%;
+    text-align: right;
+}
+#add{
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,1);
+  padding: 5px 15px;
+  background: #ccc;
+}
+li > span.task-description {
+    padding: 0px 0px 0px 25px;
+    color: #B4B9C3;
+    height: auto;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+li > span.task-name task-name{
+        font-size: 16px;
+}
+
+li > span .remove {
+    float: right;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 24px;
+}
+
+
+
+
+
+
+ span.marker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 3px;
+  height: 100%;
+  display: inline-block;
+  float: left;
+ }
+
+ #taskmarker {
+    display: inline-block;
+    width: auto;
+    float: left;
+    line-height: 21px;
+    padding: 0px 5px 5px 0px;
+    text-align: left;
+    margin: 0px 5px;
+    border: 0px;
+    font-size: 23px;
+ }
+
+#marker-picker {
+position: absolute;
+    top: 22px;
+    width: 25px;
+    height: 25px;
+    right: 20px;
+    z-index: 2;
+ }
+
+#marker-picker #choosed-color{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #F0F1F5;
+    display: inline-block;
+    margin: 3px;
+    border-radius: 24px;
+    cursor: pointer;
+    border: 1px solid #e4e6e9;
+    box-shadow: inset -2px -2px 7px 6px rgba(0,0,0,0.1);
+
+}
+
+#marker-picker #marker-picker-list{
+    position: absolute;
+    top: -45px;
+    margin-top: 5px;
+    right: -13px;
+    display: none;
+    opacity: 0;
+    width: auto;
+    min-width: 185px;
+    height: 35px;
+    background: rgba(255,255,255, 1);
+    border: 1px solid #e3e4e8;
+    box-shadow: 5px 5px 35px -10px rgba(0,0,0,0.2);
+    border-radius: 2px;
+ }
+
+#marker-picker #marker-picker-list > li{
+    display: inline-block;
+    float: right;
+    margin: 5px 10px 0px 0px;
+    border-radius: 24px; 
+    width: 24px;
+    height: 24px;
+        box-shadow: inset -2px -2px 7px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+        border: 1px solid rgba(0,0,0,0.2);
+ }
+
+#new-task #submit-task {
+    background: #fafbfc;
+    display: none;
+    border-top: 1px solid #e7e8ec;
+    padding: 15px 20px;
+    border-radius: 0 0 2px 2px;
+    width: calc(100% + 30px)!important;
+    margin: -15px;
+    margin-top: 15px;
+    margin-bottom: -17px;
+ }
+
+#marker-picker-list:after, #marker-picker-list:before {
+  top: 100%;
+  left: 85%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+
+#marker-picker-list:after{
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #ffffff;
+    border-width: 4px;
+    margin-left: 0px;
+
+}
+#marker-picker-list:before{
+  border-color: rgba(227, 228, 232, 0);
+  border-top-color: #e3e4e8;
+  border-width: 6px;
+  margin-left: -1px;
+}
+
+
+footer h5{
+      color: #ccc;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+#new-task #submit-task.opened{
+  display: inline-block;
+}
+
+#todo-wrap.fixed #new-task{
+  position: fixed; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  z-index: 9; 
+  top: 15px; 
+  width:calc(100% - 30px); 
+  max-width: 570px;
+  margin-left:0px;
+  margin-right: 0px;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8, 0px 4px 15px -4px rgba(0,0,0,0.3);
+}
+
+#todo-wrap.fixed #new-task:after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 102%;
+    transform: translateX(-1%);
+    height: 90px;
+    bottom: 100%;
+    margin-bottom: 1px;
+    left: 0px;
+    background: #edeef0;
+}
+
+  #todo-wrap.fixed #todolist-item.padding-top{
+    padding-top:  100px;
+  }
+
+@media screen and (max-width: 640px) {
+#new-task #submit-task{
+  display: inline-block;
+    }
+  #todo-wrap.fixed #todolist-item.padding-top{
+    padding-top:  162px;
+  }
+}
