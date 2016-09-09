@@ -11,5 +11,3 @@ What can it do?
 
 <h1>Demo <a href="http://bulldogs.kl.com.ua/todo/">here</a></h1>
 
-
-made with love by Ihor Lysenko "Antrage"
