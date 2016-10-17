@@ -58,7 +58,7 @@ function setTask() {
         resetValue();
 
     } else {
-        document.getElementById('error-taskname').innerHTML = 'Попробуйте ввести другое название';
+        document.getElementById('error-taskname').innerHTML = 'Try to put another name';
         document.getElementById('error-taskname').classList.remove('fadeOut');
         document.getElementById('error-taskname').classList.add('animated', 'fadeIn');
 
@@ -136,7 +136,7 @@ function show() {
             var checkClass = '';
         }
 
-        html += '<li class="animated ' + checkClass + '"><span class="marker" style="background:' + a.marker + '"></span><span class="task-name"><input type="checkbox" id="checking-id-' + Object.keys(toDoList).indexOf(prop) + '" class="checking" ' + checkClass + '/>' + a.name + '<span class="remove" id="element-' + Object.keys(toDoList).indexOf(prop) + '">Удалить</span></span><span class="task-description">' + a.desc + '</span>' + '<span class="task-endtime">' + a.endTime + '</span></li>';
+        html += '<li class="animated ' + checkClass + '"><span class="marker" style="background:' + a.marker + '"></span><span class="task-name"><input type="checkbox" id="checking-id-' + Object.keys(toDoList).indexOf(prop) + '" class="checking" ' + checkClass + '/>' + a.name + '<span class="remove" id="element-' + Object.keys(toDoList).indexOf(prop) + '">Delete</span></span><span class="task-description">' + a.desc + '</span>' + '<span class="task-endtime">' + a.endTime + '</span></li>';
     }
     html += '</ul>';
 
@@ -162,8 +162,9 @@ function show() {
     document.getElementById('add').addEventListener('click', setTask);
     document.getElementById('clear-tasks').addEventListener('click', clearTasks);
 
+
     if(localStorage.getItem('toDoList') !== null){
-        document.getElementById('clear-tasks').innerHTML = 'Удалить все задачи';
+        document.getElementById('clear-tasks').innerHTML = 'Remove all tasks';
     }else{
         document.getElementById('clear-tasks').innerHTML = '';
       
@@ -186,7 +187,7 @@ function openMore() {
 
         closed.remove("fadeOut");
         closed.add("fadeIn");
-        closedText.innerHTML = 'Меньше функций';
+        closedText.innerHTML = 'Hide properties';
 
     } else if (closed.contains('fadeIn')) {
         document.getElementById('add').setAttribute('tabindex', '2');
@@ -194,12 +195,12 @@ function openMore() {
         localStorage.setItem('openMore', 'fadeOut');
         closed.remove("fadeIn");
         closed.add("fadeOut");
-        closedText.innerHTML = 'Больше функций';
+        closedText.innerHTML = 'Show properties';
 
     } else {
         localStorage.setItem('openMore', 'fadeIn');
         closed.add("fadeIn");
-        closedText.innerHTML = 'Меньше функций';
+        closedText.innerHTML = 'Hide properties';
 
     }
 }
@@ -211,17 +212,17 @@ var lS = localStorage.getItem('openMore');
 document.getElementById('more-fields').classList += ' ' + lS;
 
 if (localStorage.getItem('openMore') === 'fadeOut') {
-    document.getElementById('more').innerHTML = 'Больше функций';
+    document.getElementById('more').innerHTML = 'Show properties';
 
     document.getElementById('taskname').setAttribute('tabindex', 1);
     document.getElementById('add').setAttribute('tabindex', 2);
 
   } else if (localStorage.getItem('openMore') === 'fadeIn') {
-    document.getElementById('more').innerHTML = 'Меньше функций';
+    document.getElementById('more').innerHTML = 'Hide properties';
     document.getElementById('submit-task').style.display = 'inline-block';
 
 } else {
-    document.getElementById('more').innerHTML = 'Больше функций';
+    document.getElementById('more').innerHTML = 'Show properties';
 }
 
 
@@ -273,6 +274,8 @@ var decodeEntities = (function() {
 })();
 
 
+var classname = document.getElementsByClassName('color-item');
+
 
 function pickColor() {
 
@@ -309,7 +312,7 @@ function pickColor() {
 
 }
 
-var classname = document.getElementsByClassName('color-item');
+
 
 var changeColor = function() {
     var attribute = this.getAttribute("data-color");
@@ -331,7 +334,7 @@ function clearTasks (){
     localStorage.removeItem('toDoList');
 
     if(localStorage.getItem('toDoList') !== null){
-        document.getElementById('clear-tasks').innerHTML = 'Удалить все задачи';
+        document.getElementById('clear-tasks').innerHTML = 'Remove all tasks';
     }else{
         document.getElementById('clear-tasks').innerHTML = '';
 

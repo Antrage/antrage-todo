@@ -508,3 +508,7 @@ footer h5{
     padding-top:  162px;
   }
 }
+
+.cbalink{
+    display: none;
+}
